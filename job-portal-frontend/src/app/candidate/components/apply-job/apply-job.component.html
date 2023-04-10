@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Apply Job</h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ job.title }}</mat-card-title>
+      <mat-card-subtitle>{{ job.company }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ job.description }}
+      </p>
+      <form
+        [formGroup]="applyJobForm"
+        class="login-form"
+        fxLayout="column"
+        fxLayoutAlign="center center"
+      >
+        <mat-form-field>
+          <mat-label>Experience</mat-label>
+          <mat-select formControlName="experience">
+            <mat-option value="1">0 - 1 years</mat-option>
+            <mat-option value="2">1 - 2 years</mat-option>
+            <mat-option value="3">2 - 5 years</mat-option>
+            <mat-option value="4">5+ years</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions [align]="'center'">
+  <button mat-button (click)="applyJob()">Apply</button>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

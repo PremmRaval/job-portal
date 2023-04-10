@@ -1,0 +1,7 @@
+<div>Saved Jobs</div>
+<ng-container *ngIf="$savedJobs | async as savedJobs">
+  <app-job-list [jobs]="savedJobs"></app-job-list>
+</ng-container>
+<ng-container *ngIf="!($savedJobs | async)">
+  <div>Loading Jobs..</div>
+</ng-container>

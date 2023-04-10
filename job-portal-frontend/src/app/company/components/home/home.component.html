@@ -1,0 +1,15 @@
+<h2>Posted Jobs</h2>
+<ng-container *ngFor="let job of $recentJobs | async as recentJobs">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ job.title }}</mat-card-title>
+      <mat-card-subtitle
+        >{{ job.company }} | {{ job.location }}</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ job.description }}</p>
+      <p class="posted-on-date">Posted on: {{ job.date_published | relativeTime }}</p>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

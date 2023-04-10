@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content {
+  padding: 10px 16px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+.mat-error {
+  margin: 10px 0;
+}
+
+.login-form {
+  width: 350px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+.login-button {
+  margin-top: 20px;
+}
+
+.login-form-action {
+  margin: 10px 0;
+}
+
+.sign-up-link {
+  margin: 0 20px;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.company-sign-up-link {
+  margin: 20px 0;
+  color: blue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mat-card-content,
+.mat-card-actions {
+  margin: 0 16px;
+}
+
+.mat-card {
+  margin: 10px 0;
+}
+
+.posted-on-date {
+  color: rgba(0, 0, 0, 0.54);
+}

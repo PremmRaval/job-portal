@@ -1,0 +1,91 @@
+<div class="login-container">
+  <form
+    [formGroup]="signUpForm"
+    class="login-form"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <h2>Company Sign Up</h2>
+    <!-- name -->
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        type="text"
+        formControlName="name"
+        placeholder="Company Name"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="signUpForm.get('name')?.dirty || signUpForm.get('name')?.touched"
+    >
+      <mat-error *ngIf="signUpForm.get('name')?.errors?.['required']">
+        Company name is required
+      </mat-error>
+    </div>
+
+    <!-- email -->
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        type="text"
+        formControlName="email"
+        placeholder="Email Id"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="
+        (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched) &&
+        signUpForm.get('email')?.invalid
+      "
+    >
+      <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']">
+        Email Id is required
+      </mat-error>
+      <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']">
+        Email Id is invalid
+      </mat-error>
+    </div>
+
+    <!-- password -->
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        type="password"
+        maxlength="20"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="
+        (signUpForm.get('password')?.dirty ||
+          signUpForm.get('password')?.touched) &&
+        signUpForm.get('password')?.invalid
+      "
+    >
+      <mat-error *ngIf="signUpForm.get('password')?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </div>
+
+    <!-- logo -->
+    <div class="upload-compnay-logo">
+      <button mat-raised-button (click)="openInput()">Select Company Logo</button>
+      <input
+        id="fileInput"
+        hidden
+        type="file"
+        (change)="onFileSelected($event)"
+        accept=".jpg,.jpeg,.png"
+        required
+      />
+    </div>
+
+    <div class="login-form-action">
+      <button mat-raised-button class="login-button" (click)="signUp()">
+        Sign Up
+      </button>
+      <a class="sign-up-link" (click)="signIn()">Already User? Sign In?</a>
+    </div>
+  </form>
+</div>

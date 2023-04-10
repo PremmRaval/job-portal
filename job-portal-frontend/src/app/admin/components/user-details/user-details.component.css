@@ -1,0 +1,15 @@
+.user-detail-item {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .detail-label {
+    width: 100px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .detail-value {
+    flex: 1;
+  }
+  

@@ -1,0 +1,72 @@
+<div class="applied-jobs-container">
+  <div class="applied-left-panel">
+    <h2 class="applied-jobs-header">Applied Jobs</h2>
+    <ng-container *ngIf="$appliedJobs | async as appliedJobs">
+      <app-job-list
+        [jobs]="appliedJobs"
+        [appliedJob]="true"
+        (jobClickEvent)="setSelectedJob($event)"
+      ></app-job-list>
+    </ng-container>
+  </div>
+  <div class="applied-right-panel">
+    <ng-container>
+      <div class="job-application-placeholder" *ngIf="!selectedJob">
+        <h2>Select Job Application to View Details</h2>
+        <h3>
+          See details like your application status, activity on job & match
+          score
+        </h3>
+      </div>
+      <div class="job-application-details" *ngIf="selectedJob">
+        <div class="top-panel">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div *ngIf="false" mat-card-avatar class="example-header-image">
+                <img [src]="" />
+              </div>
+              <mat-card-title> {{ selectedJob.title }} </mat-card-title>
+              <mat-card-subtitle>
+                {{ selectedJob.company }} | {{ selectedJob.location }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ selectedJob.description }}</p>
+              <div class="applied-job-recruiter">
+                <div class="recruiter-name" title="Monika Pathak">
+                  {{ selectedJob.contactName }}
+                </div>
+                <div
+                  class="recruiter-designation"
+                  attr.title="{{ selectedJob.title }}"
+                >
+                  Company Recruiter at {{ selectedJob.company }},
+                  {{ selectedJob.location }}
+                </div>
+              </div>
+              <div class="applied-application-status">
+                <h2 class="applied-application-header">Application Status</h2>
+                <div class="applied-progress-indicator">
+                  <div class="step-one step-completed">
+                    <span class="step-icon"></span>
+                    <p class="step-title">Applied</p>
+                  </div>
+
+                  <div class="step-two step-completed">
+                    <span class="step-icon step-tick"></span>
+                    <p class="step-title">Application Sent</p>
+                  </div>
+
+                  <div class="step-three">
+                    <span class="step-icon step-tick"></span>
+                    <p class="step-title">Awaiting Recruiter Action</p>
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

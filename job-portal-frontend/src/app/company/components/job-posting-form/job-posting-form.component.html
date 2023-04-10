@@ -1,0 +1,102 @@
+<mat-card>
+  <mat-card-title>Job Posting Form</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="jobPostingForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput formControlName="title" placeholder="Job Title" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea
+          matInput
+          formControlName="description"
+          placeholder="Job Description"
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="company" placeholder="Company Name" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput formControlName="location" placeholder="Location" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Job Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="full-time">Full Time</mat-option>
+          <mat-option value="part-time">Part Time</mat-option>
+          <mat-option value="contract">Contract</mat-option>
+          <mat-option value="temporary">Temporary</mat-option>
+          <mat-option value="internship">Internship</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <input
+          matInput
+          formControlName="skills"
+          placeholder="Required Skills"
+        />
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <input matInput formControlName="salary" placeholder="Salary Range" />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Job Experience</mat-label>
+        <mat-select formControlName="experience">
+          <mat-option value="entry-level">Entry Level</mat-option>
+          <mat-option value="mid-level">Mid Level</mat-option>
+          <mat-option value="senior-level">Senior Level</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field>
+        <mat-label>Education Level</mat-label>
+        <mat-select formControlName="education">
+          <mat-option value="high-school">High School</mat-option>
+          <mat-option value="associate-degree">Associate Degree</mat-option>
+          <mat-option value="bachelors-degree">Bachelors Degree</mat-option>
+          <mat-option value="masters-degree">Masters Degree</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="contactName"
+          placeholder="Contact Name"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="contactEmail"
+          placeholder="Contact Email"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="contactPhone"
+          placeholder="Contact Phone"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions [align]="'end'">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="jobPostingForm.invalid"
+    >
+      Submit
+    </button>
+  </mat-card-actions>
+</mat-card>

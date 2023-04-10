@@ -1,0 +1,37 @@
+.my-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+.my-table td,
+.my-table th {
+  padding: 12px 15px;
+}
+
+.my-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.my-table th {
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #ddd;
+}
+
+.my-table tr:last-of-type td {
+  border-bottom: none;
+}
+
+.my-table tr:hover td {
+  background-color: #f5f5f5;
+}

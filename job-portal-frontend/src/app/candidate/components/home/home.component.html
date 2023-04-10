@@ -1,0 +1,7 @@
+<h2>Recommended Jobs</h2>
+<ng-container *ngIf="$recommendedJobs | async as recommendedJobs">
+  <app-job-list [jobs]="recommendedJobs"></app-job-list>
+</ng-container>
+<ng-container *ngIf="!($recommendedJobs | async)">
+  <div>Loading Jobs..</div>
+</ng-container>

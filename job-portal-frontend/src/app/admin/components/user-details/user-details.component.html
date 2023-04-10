@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>User Details</h2>
+<mat-dialog-content>
+  <mat-card>
+    <mat-card-content>
+      <div class="user-details">
+        <div class="user-detail-item">
+          <div class="detail-label">Name:</div>
+          <div class="detail-value">{{ data.name }}</div>
+        </div>
+        <div class="user-detail-item">
+          <div class="detail-label">Email:</div>
+          <div class="detail-value">{{ data.email }}</div>
+        </div>
+        <div class="user-detail-item">
+          <div class="detail-label">Phone:</div>
+          <div class="detail-value">{{ data.phone }}</div>
+        </div>
+        <div class="user-detail-item">
+          <div class="detail-label">Age:</div>
+          <div class="detail-value">{{ data.age }}</div>
+        </div>
+        <img
+          mat-card-image
+          [src]="
+            'http://localhost:3000/static/certificates/' + data.certificate_path
+          "
+        />
+      </div>
+    </mat-card-content>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions [align]="'center'">
+  <button mat-button [mat-dialog-close]="data">Accept Application</button>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

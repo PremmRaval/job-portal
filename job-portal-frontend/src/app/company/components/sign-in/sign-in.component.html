@@ -1,0 +1,59 @@
+<div class="login-container">
+  <form
+    [formGroup]="loginForm"
+    class="login-form"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <h2>Company Login</h2>
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        type="text"
+        formControlName="email"
+        placeholder="Email Id"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="
+        (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) &&
+        loginForm.get('email')?.invalid
+      "
+    >
+      <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
+        Email Id is required
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.errors?.['email']">
+        Email Id is invalid
+      </mat-error>
+    </div>
+
+    <mat-form-field floatLabel="never">
+      <input
+        matInput
+        type="password"
+        maxlength="20"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </mat-form-field>
+    <div
+      *ngIf="
+        (loginForm.get('password')?.dirty ||
+          loginForm.get('password')?.touched) &&
+        loginForm.get('password')?.invalid
+      "
+    >
+      <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+        Password is required
+      </mat-error>
+    </div>
+
+    <div class="login-form-action">
+      <button mat-raised-button class="login-button" (click)="login()">
+        Login
+      </button>
+      <a class="sign-up-link" (click)="signUp()">Already User? Sign Up</a>
+    </div>
+  </form>
+</div>

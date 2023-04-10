@@ -1,0 +1,44 @@
+<div class="container">
+  <mat-toolbar color="primary">
+    <span (click)="navigateTo('home')">Job Portal</span>
+    <button
+      mat-button
+      aria-label="applied jobs button"
+      (click)="navigateTo('applied-jobs')"
+      *ngIf="accountType === 0"
+    >
+      Applied Jobs
+    </button>
+    <!-- <button
+      mat-button
+      aria-label="saved jobs button"
+      (click)="navigateTo('saved-jobs')"
+      *ngIf="accountType === 0"
+    >
+      Saved Jobs
+    </button> -->
+    <button
+      mat-button
+      aria-label="job posting button"
+      (click)="navigateTo('company/job-posting')"
+      *ngIf="accountType === 1"
+    >
+      Job Posting
+    </button>
+    <span class="example-spacer"></span>
+    <button
+      mat-button
+      aria-label="profile button"
+      (click)="navigateTo('profile')"
+      *ngIf="accountType === 0"
+    >
+      Profile
+    </button>
+    <button mat-button aria-label="logout button" (click)="logout()">
+      Logout
+    </button>
+  </mat-toolbar>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>
