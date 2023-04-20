@@ -31,7 +31,6 @@ export class SignInComponent implements OnInit {
   login(): void {
     this.dataService.signIn(this.loginForm.value).subscribe((result) => {
       this.authService.signIn(result.token);
-      this.userService.setAccountType(1);
       this.snackBar.open('user logged in successfully', 'close', {
         duration: 3000,
       });

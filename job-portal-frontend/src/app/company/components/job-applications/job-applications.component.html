@@ -1,0 +1,99 @@
+<div class="applied-jobs-container">
+  <div class="applied-left-panel">
+    <h2 class="applied-jobs-header">Applied Jobs</h2>
+    <ng-container *ngIf="$applications | async as applications">
+      <div *ngFor="let application of applications">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title
+              >{{ application.name }} ({{
+                application.experience
+              }}
+              YOE)</mat-card-title
+            >
+            <mat-card-subtitle>
+              {{ application.email }} | {{ application.phone }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ application.name }} has applicated for
+              {{ application.title }} in {{ application.company }} at
+              {{ application.location }} location(s)
+            </p>
+            <p class="posted-on-date">
+              Applied On: {{ application.application_date | relativeTime }}
+            </p>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+          <mat-card-actions [align]="'end'">
+            <button mat-button (click)="viewDetails(application)">
+              View Details
+            </button>
+            <button mat-button (click)="acceptCandidate(application)">
+              Apply
+            </button>
+            <button mat-button (click)="rejectCandidate(application)">
+              Reject
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+  <div class="applied-right-panel">
+    <ng-container>
+      <div class="job-application-placeholder" *ngIf="!selectedApplication">
+        <h2>Select Application to View Details</h2>
+        <h3>See details like your applicant name, resume and more</h3>
+      </div>
+      <div class="job-application-details" *ngIf="selectedApplication">
+        <div class="top-panel">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>
+                {{ selectedApplication.name }}
+                ({{ selectedApplication.experience }} YOE)
+              </mat-card-title>
+              <mat-card-subtitle>
+                {{ selectedApplication.email }} |
+                {{ selectedApplication.phone }}
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{ selectedApplication.name }} has applicated for
+                {{ selectedApplication.title }} in
+                {{ selectedApplication.company }} at
+                {{ selectedApplication.location }} location(s)
+              </p>
+
+              <p>Email: {{ selectedApplication.email }}</p>
+
+              <p>Phone: {{ selectedApplication.phone }}</p>
+
+              <div>
+                <a
+                  target="_blank"
+                  href="http://localhost:3000/static/resumes/{{
+                    selectedApplication.resume_path
+                  }}"
+                  >Download Resume
+                </a>
+              </div>
+              <div>
+                <a
+                  target="_blank"
+                  href="http://localhost:3000/static/certificates/{{
+                    selectedApplication.certificate_path
+                  }}"
+                  >Download Certificate
+                </a>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

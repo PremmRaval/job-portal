@@ -17,4 +17,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.$recommendedJobs = this.dataService.getRecommendedJobs();
   }
+  refreshJob(): void {
+    this.$recommendedJobs = this.dataService.getRecommendedJobs();
+  }
 }

@@ -17,7 +17,7 @@
         Posted On: {{ job.date_published | relativeTime }}
       </p>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions *ngIf="appliedJob ==false">
       <!-- <button mat-button (click)="saveJob(job)">Save</button> -->
       <button mat-button (click)="applyJob(job)">Apply</button>
     </mat-card-actions>

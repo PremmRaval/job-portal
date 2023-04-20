@@ -159,4 +159,45 @@ router.get("/get-jobs", verifyToken, (req, res, next) => {
   });
 });
 
+router.get("/get-applications", verifyToken, (req, res, next) => {
+  const { id } = req.user;
+
+  const query = `SELECT DISTINCT c.id as user_id, j.id as job_id, a.id as application_id,
+  CONCAT(c.first_name, " ", c.last_name) as name, c.first_name, c.last_name, c.email, c.phone, c.age, 
+  c.certificate_path, c.resume_path, j.title, j.company, j.description, j.location, j.type, 
+  j.salary, j.contactName, j.contactEmail, j.contactPhone, j.date_published, a.date as application_date, a.experience
+  FROM candidate c
+  INNER JOIN application a ON c.id = a.applicant_id AND a.application_status = 0
+  INNER JOIN job j ON a.job_id = j.id
+  INNER JOIN organization o ON j.org_id = o.id
+  WHERE o.id = ?
+  ORDER BY job_id`;
+  db.query(query, [id], (error, results) => {
+    if (error) {
+      console.log(`\u001b[31m[ERR] ${error}`);
+      return res
+        .status(500)
+        .json({ error: "An error occurred while creating user." });
+    }
+
+    res.status(201).json(results);
+  });
+});
+
+router.post("/update-application", verifyToken, (req, res, next) => {
+  const { application_id, candidate_id, status } = req.body;
+
+  const query = `UPDATE application set application_status = ? where id = ? and applicant_id = ?`;
+  db.query(query, [status, application_id, candidate_id], (error, results) => {
+    if (error) {
+      console.log(`\u001b[31m[ERR] ${error}`);
+      return res
+        .status(500)
+        .json({ error: "An error occurred while creating user." });
+    }
+
+    res.status(201).json(results);
+  });
+});
+
 module.exports = router;

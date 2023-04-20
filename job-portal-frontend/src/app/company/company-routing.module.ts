@@ -6,6 +6,7 @@ import { NoAuthGuard } from '../shared/guards/no-auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { JobPostingFormComponent } from './components/job-posting-form/job-posting-form.component';
+import { JobApplicationsComponent } from './components/job-applications/job-applications.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'job-posting',
     component: JobPostingFormComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'job-applications',
+    component: JobApplicationsComponent,
     canActivate: [AuthGuard],
   },
 ];

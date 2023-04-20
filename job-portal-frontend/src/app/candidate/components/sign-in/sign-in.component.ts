@@ -22,7 +22,6 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private dataService: DataService,
     private authService: AuthService,
-    private userService: UserService,
     private snackBar: MatSnackBar
   ) {}
 
@@ -31,7 +30,6 @@ export class SignInComponent implements OnInit {
   login(): void {
     this.dataService.signIn(this.loginForm.value).subscribe((result) => {
       this.authService.signIn(result.token);
-      this.userService.setAccountType(0);
       this.snackBar.open('user logged in successfully', 'close', {
         duration: 3000,
       });

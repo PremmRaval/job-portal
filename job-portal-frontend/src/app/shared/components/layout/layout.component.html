@@ -25,6 +25,14 @@
     >
       Job Posting
     </button>
+    <button
+      mat-button
+      aria-label="job posting button"
+      (click)="navigateTo('company/job-applications')"
+      *ngIf="accountType === 1"
+    >
+      Job Applications
+    </button>
     <span class="example-spacer"></span>
     <button
       mat-button

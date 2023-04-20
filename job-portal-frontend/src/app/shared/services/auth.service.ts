@@ -28,12 +28,6 @@ export class AuthService {
     localStorage.removeItem('token');
     this.isLoggedIn$.next(false);
     let path = '/sign-in';
-    if (this.userService.accountType === 1) {
-      path = 'company/sign-in';
-    } else if (this.userService.accountType === 2) {
-      path = 'admin/sign-in';
-    }
-    this.userService.setAccountType(-1);
     this.router.navigate([path]);
   }
 }

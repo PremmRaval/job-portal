@@ -1,0 +1,100 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.applied-jobs-container {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.applied-jobs-header,
+.applied-application-header {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 20px 0;
+}
+.applied-left-panel,
+.applied-right-panel {
+  width: 50%;
+  padding: 20px;
+}
+.applied-left-panel {
+  border-right: 1px solid black;
+}
+.applied-right-panel {
+  padding: 20px 0;
+}
+.applied-right-panel h3 {
+  color: #8993a4;
+  font-size: 12px;
+}
+.job-application-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.job-application-placeholder h2,
+.job-application-placeholder h3 {
+  margin-bottom: 5px;
+}
+.applied-job-recruiter {
+  padding: 10px 0;
+  border: 1px solid rgba(145, 158, 169);
+  border-width: 1px 0 1px 0;
+}
+.recruiter-name {
+  font-size: 14px;
+  color: #000000;
+}
+.recruiter-designation {
+  color: rgb(83, 103, 119);
+}
+.job-application-details .mat-card {
+  box-shadow: none;
+}
+.applied-progress-indicator {
+  display: flex;
+  flex-direction: row;
+}
+.progress-line {
+  display: inline-block;
+  width: 150px;
+}
+.step-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ebecf0;
+  display: inline-block;
+}
+.step-completed .step-icon {
+  background-color: #28ad35;
+}
+.step-one,
+.step-two,
+.step-three {
+  width: 150px;
+  position: relative;
+}
+.step-two::before,
+.step-three::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: -147px;
+  width: 150px;
+  height: 1px;
+  border-top: 1px solid #ebecf0;
+  z-index: 0;
+  margin-left: 5px;
+}
+.step-completed::before {
+  content: "";
+  border-color: #28ad35;
+}
+.mat-card-header .mat-card-title {
+    font-size: 16px;
+    line-height: 20px;
+}

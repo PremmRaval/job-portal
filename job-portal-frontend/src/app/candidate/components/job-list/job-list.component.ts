@@ -13,6 +13,7 @@ export class JobListComponent implements OnInit {
   @Input() jobs: Job[] = [];
   @Input() appliedJob = false;
   @Output() jobClickEvent = new EventEmitter<Job>();
+  @Output() refreshJobEvent = new EventEmitter<void>();
 
   constructor(private dataService: DataService, private dialog: MatDialog) {}
 
@@ -29,7 +30,7 @@ export class JobListComponent implements OnInit {
         if (result) {
           this.dataService
             .applyJob(result.id, result.experience)
-            .subscribe(() => {});
+            .subscribe(() => {this.refreshJobEvent.emit();});
         }
       });
   }

@@ -12,6 +12,7 @@ import { JobPostingFormComponent } from './components/job-posting-form/job-posti
 import { HomeComponent } from './components/home/home.component';
 import { AuthInterceptor } from '../shared/interceptors/auth.interceptor';
 import { ErrorHandlerInterceptor } from '../shared/interceptors/error-handler.interceptor';
+import { JobApplicationsComponent } from './components/job-applications/job-applications.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ErrorHandlerInterceptor } from '../shared/interceptors/error-handler.in
     SignUpComponent,
     JobPostingFormComponent,
     HomeComponent,
+    JobApplicationsComponent,
   ],
   imports: [
     CommonModule,

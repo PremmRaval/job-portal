@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Application } from 'src/app/shared/models/application.model';
 import { Job } from 'src/app/shared/models/job.model';
 
 @Injectable()
@@ -41,5 +42,22 @@ export class DataService {
 
   getAllPostedJobs() {
     return this.http.get<Job[]>('http://localhost:3000/api/company/get-jobs');
+  }
+
+  getAllApplications() {
+    return this.http.get<Application[]>(
+      'http://localhost:3000/api/company/get-applications'
+    );
+  }
+
+  updateApplication(application: Application, status: number) {
+    return this.http.post<void>(
+      'http://localhost:3000/api/company/update-application',
+      {
+        application_id: application.application_id,
+        candidate_id: application.user_id,
+        status: status,
+      }
+    );
   }
 }

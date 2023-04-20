@@ -9,8 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./layout.component.css'],
 })
 export class LayoutComponent implements OnInit {
-  accountType = -1;
-
+  accountType: number = -1;
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -18,7 +17,9 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.accountType = this.userService.accountType;
+    this.userService.accountType.subscribe((result) => {
+      this.accountType = result.account_type;
+    });
   }
 
   navigateTo(path: string): void {
